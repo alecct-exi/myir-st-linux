@@ -48,4 +48,10 @@
 		};
 	};
 
+    gpioctr_device{
+        compatible = "myir, gpioctr";
+        status = "okay";
+        gpioctr-gpios = <&gpiof 14 0>;
+    };
+
 };
