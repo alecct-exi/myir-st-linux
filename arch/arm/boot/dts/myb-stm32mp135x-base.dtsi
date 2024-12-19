@@ -22,8 +22,6 @@
 		ethernet0 = &eth1;
 		ethernet1 = &eth2;
 		serial0 = &uart4;
-		serial1 = &uart7;
-		serial2 = &uart5;
 	};
 
 	chosen {
@@ -68,33 +66,6 @@
 			interrupt-parent = <&gpioi>;
 			interrupts = <1 IRQ_TYPE_EDGE_RISING>;
 		};
-	};
-
-	leds {
-		compatible = "gpio-leds";
-		led-blue {
-			function = LED_FUNCTION_HEARTBEAT;
-			color = <LED_COLOR_ID_BLUE>;
-			gpios = <&gpioh 12 GPIO_ACTIVE_LOW>;
-			linux,default-trigger = "heartbeat";
-			default-state = "off";
-		};
-	};
-
-	/*LCD Panel*/
-	panel_ltdc_rgb: panel_ltdc_rgb{
-			compatible = "myir,070tft-7";
-			power-supply = <&v3v3_panle>;
-			enable-gpios = <&gpioa 11 GPIO_ACTIVE_HIGH>;
-			reset-gpios = <&gpioi 0 GPIO_ACTIVE_HIGH>;
-			//interrupts = <3 IRQ_TYPE_EDG
-			//backlight = <&panel_backlight>;
-			status = "okay";
-			port {
-					panel_in_rgb: endpoint {
-							remote-endpoint = <&ltdc_out_rgb>;
-					};
-			};
 	};
 
     v3v3_hdmi: regulator-v3v3-hdmi {
@@ -624,28 +595,6 @@
 	status = "okay";
 };
 
-/*RS485*/
-&uart7 {
-	pinctrl-names = "default", "sleep", "idle";
-	pinctrl-0 = <&uart7_pins_a>;
-	pinctrl-1 = <&uart7_sleep_pins_a>;
-	pinctrl-2 = <&uart7_idle_pins_a>;
-	/delete-property/dmas;
-	/delete-property/dma-names;
-	status = "okay";
-};
-
-/*RS232*/
-&uart5 {
-	pinctrl-names = "default", "sleep", "idle";
-	pinctrl-0 = <&uart5_pins_a>;
-	pinctrl-1 = <&uart5_sleep_pins_a>;
-	pinctrl-2 = <&uart5_idle_pins_a>;
-	// /delete-property/dmas;
-	// /delete-property/dma-names;
-	status = "okay";
-};
-
 &i2s1 {
 	#clock-cells = <0>;
 	clocks = <&rcc SPI1>, <&rcc SPI1_K>, <&scmi_clk CK_SCMI_PLL3_Q>, <&scmi_clk CK_SCMI_PLL3_R>;
@@ -661,28 +610,4 @@
             remote-endpoint = <&sgtl5000_endpoint>;
         };
     };
-};
-
-&i2c3 {
-        pinctrl-names = "default", "sleep";
-        i2c-scl-rising-time-ns = <100>;
-        i2c-scl-falling-time-ns = <7>;
-        status = "okay";
-        /delete-property/dmas;
-        /delete-property/dma-names;
-
-        touchscreen@38 {
-              compatible ="edt,edt-ft5x06";
-              reg = <0x38>;
-
-              interrupt-parent = <&gpioi>;
-              interrupts = <7  IRQ_TYPE_EDGE_FALLING>;
-              interrupt-controller;
-              touchscreen-size-x = <1024>;
-              touchscreen-size-y = <600>;
-
-              reset-gpios = <&gpioi 2 GPIO_ACTIVE_LOW>;
-              status = "okay";
-      };
-
 };
