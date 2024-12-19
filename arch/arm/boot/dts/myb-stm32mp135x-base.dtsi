@@ -322,21 +322,6 @@
 	status = "okay";
 };
 
-&ltdc {
-	pinctrl-names = "default", "sleep";
-	pinctrl-0 = <&ltdc_pins_a>;
-	pinctrl-1 = <&ltdc_sleep_pins_a>;
-	status = "okay";
-	port {
-		#address-cells = <1>;
-		#size-cells = <0>;
-
-		ltdc_out_rgb: endpoint {
-				remote-endpoint = <&panel_in_rgb>;
-		};
-	};
-};
-
 &rtc {
 	// st,lsco = <RTC_OUT2_RMP>;
 	// pinctrl-0 = <&rtc_out2_rmp_pins_a>;
