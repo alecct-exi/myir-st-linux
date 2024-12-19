@@ -16,8 +16,6 @@
 		ethernet0 = &eth1;
 		ethernet1 = &eth2;
 		serial0 = &uart4;
-		serial1 = &uart7;
-		serial2 = &uart5;
 	};
 
 	chosen {
