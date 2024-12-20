@@ -515,7 +515,8 @@
 			};
 		};
 	};
-*/
+    */
+    /*
 	ov2659: camera@30 {
 		compatible = "ovti,ov2659";
 		reg = <0x30>;
@@ -530,7 +531,7 @@
 			ov2659_0: endpoint {
 				remote-endpoint = <&dcmipp_0>;
 				// bus-width = <8>;
-				// data-shift = <2>; /* lines 9:2 are used */
+				// data-shift = <2>; // lines 9:2 are used
 				// hsync-active = <0>;
 				// vsync-active = <0>;
 				// pclk-sample = <1>;
@@ -539,6 +540,7 @@
 			};
 		};
 	};
+    */
 
 	sgtl5000: audio-codec@a {
 		status = "okay";
