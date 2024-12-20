@@ -214,7 +214,7 @@
 	status = "okay";
 };
 
-&dcmipp {
+/*&dcmipp {
 	status = "okay";
 	pinctrl-names = "default", "sleep";
 	pinctrl-0 = <&dcmiapp_pins_mx>;
@@ -230,7 +230,7 @@
 //					pclk-max-frequency = <120000000>;
 			};
 	};
-};
+};*/
 
 &dma1 {
 	sram = <&dma_pool>;
@@ -244,7 +244,7 @@
 	status = "okay";
 };
 
-&eth1 {
+/*&eth1 {
 	status = "okay";
 	pinctrl-0 = <&eth1_rgmii_pins_a>;
 	pinctrl-1 = <&eth1_rgmii_sleep_pins_a>;
@@ -265,9 +265,9 @@
 				reg = <0>;
 		};
 	};
-};
+};*/
 
-&eth2 {
+/*&eth2 {
 	status = "okay";
 	pinctrl-0 = <&eth2_rgmii_pins_a>;
 	pinctrl-1 = <&eth2_rgmii_sleep_pins_a>;
@@ -291,7 +291,7 @@
 				reg = <2>;
 		};
 	};
-};
+};*/
 
 &i2c1 {
 	pinctrl-names = "default", "sleep";
@@ -391,7 +391,7 @@
 	status = "disabled";
 };
 
-&uart8 {
+/*&uart8 {
 	pinctrl-names = "default", "sleep", "idle";
 	pinctrl-0 = <&uart8_pins_a>;
 	pinctrl-1 = <&uart8_sleep_pins_a>;
@@ -399,7 +399,7 @@
 	/delete-property/dmas;
 	/delete-property/dma-names;
 	status = "disabled";
-};
+};*/
 
 &usart1 {
 	pinctrl-names = "default", "sleep", "idle";
