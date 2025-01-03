@@ -19,8 +19,8 @@
 	compatible = "st,stm32mp135f-dk", "st,stm32mp135";
 
 	aliases {
-		ethernet0 = &eth1;
-		ethernet1 = &eth2;
+//		ethernet0 = &eth1;
+//		ethernet1 = &eth2;
 		serial0 = &uart4;
 	};
 
@@ -57,7 +57,7 @@
 		clock-frequency = <12000000>;
 	};
 
-	gpio-keys {
+/*	gpio-keys {
 		compatible = "gpio-keys";
 		#size-cells = <0>;
 		button-0 {
@@ -67,7 +67,7 @@
 			interrupts = <1 IRQ_TYPE_EDGE_RISING>;
 		};
 	};
-
+*/
     v3v3_hdmi: regulator-v3v3-hdmi {
         compatible = "regulator-fixed";
         regulator-name = "v3v3_hdmi";
@@ -155,7 +155,7 @@
 			regulator-max-microvolt = <2800000>;
 	};
 
-	sound: audio {
+/*	sound: audio {
 		compatible = "simple-audio-card";
 		simple-audio-card,format = "i2s";
 		simple-audio-card,bitclock-master = <&codec_dai>;
@@ -183,7 +183,7 @@
 				system-clock-frequency = <12000000>;
 		};
     };
-
+*/
 };
 
 &adc_1 {
@@ -436,7 +436,7 @@
 };
 
 &usbphyc {
-	status = "okay";
+	status = "disabled";
 };
 
 &usbphyc_port0 {
@@ -488,7 +488,7 @@
 	/delete-property/dmas;
 	/delete-property/dma-names;
 
-	rx8025: rx8025@32 {
+/*	rx8025: rx8025@32 {
 		compatible = "epson,rx8025t";
 		reg = <0x32>;
 	};
@@ -498,7 +498,7 @@
 			pagesize = <64>;
 			reg = <0x50>;
 	};
-
+*/
 /*	ptn5150: ptn5150@3d {
 		compatible = "nxp,ptn5150";
 		reg = <0x3d>;
@@ -541,7 +541,7 @@
 		};
 	};
     */
-
+    /*
 	sgtl5000: audio-codec@a {
 		status = "okay";
 		#sound-dai-cells = <0>;
@@ -562,15 +562,15 @@
 			};
 		};
 	};
-
+    */
 };
-
+/*
 &m_can2 {
 	pinctrl-names = "default", "sleep";
 	pinctrl-0 = <&m_can2_pins_a>;
 	pinctrl-1 = <&m_can2_sleep_pins_a>;
 	status = "okay";
-};
+};*/
 
 /*console*/
 &uart4 {
@@ -582,7 +582,7 @@
 	/delete-property/dma-names;
 	status = "okay";
 };
-
+/*
 &i2s1 {
 	#clock-cells = <0>;
 	clocks = <&rcc SPI1>, <&rcc SPI1_K>, <&scmi_clk CK_SCMI_PLL3_Q>, <&scmi_clk CK_SCMI_PLL3_R>;
@@ -598,4 +598,4 @@
             remote-endpoint = <&sgtl5000_endpoint>;
         };
     };
-};
+};*/
