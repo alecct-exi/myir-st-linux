@@ -436,7 +436,7 @@
 };
 
 &usbphyc {
-	status = "disabled";
+	status = "okay";
 };
 
 &usbphyc_port0 {
