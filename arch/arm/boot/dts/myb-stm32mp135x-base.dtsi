@@ -499,7 +499,7 @@
 			reg = <0x50>;
 	};
 */
-/*	ptn5150: ptn5150@3d {
+	ptn5150: ptn5150@3d {
 		compatible = "nxp,ptn5150";
 		reg = <0x3d>;
 
@@ -516,7 +516,8 @@
 		};
 	};
 
-    /*
+    
+/*
 	ov2659: camera@30 {
 		compatible = "ovti,ov2659";
 		reg = <0x30>;
