@@ -108,7 +108,7 @@
 		};
 	};
 
-	/*LCD Panel*/
+	/*LCD Panel*//*
 	panel {
 			compatible = "myir,070tft-7";
 			pinctrl-names = "default", "sleep";
@@ -127,7 +127,7 @@
 							remote-endpoint = <&ltdc_out_rgb>;
 					};
 			};
-	};
+	};*/
 
 	vdd_usb: reg-vdd_usb {
 		compatible = "regulator-fixed";
@@ -365,7 +365,7 @@
 	status = "okay";
 };
 
-&ltdc {
+/*&ltdc {
 	pinctrl-names = "default", "sleep";
 	status = "okay";
 	port {
@@ -377,7 +377,7 @@
 				remote-endpoint = <&panel_in_rgb>;
 		};
 	};
-};
+};*/
 
 &rtc {
 	// st,lsco = <RTC_OUT2_RMP>;

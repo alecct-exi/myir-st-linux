@@ -12,12 +12,12 @@
 	status = "disabled";
 };
 
-&ltdc {
+/*&ltdc {
 	pinctrl-names = "default", "sleep";
 	pinctrl-0 = <&ltdc_pins_a>;
 	pinctrl-1 = <&ltdc_sleep_pins_a>;
 
-	status = "okay";
+	status = "disabled";
 	port {
 		#address-cells = <1>;
 		#size-cells = <0>;
@@ -27,7 +27,7 @@
 				remote-endpoint = <&sii9022_in>;
 		};
 	};
-};
+};*/
 
 &i2c3{
 		sii902x: sii902x@39 {
