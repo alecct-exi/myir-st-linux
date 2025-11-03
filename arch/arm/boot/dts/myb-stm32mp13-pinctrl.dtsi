@@ -585,13 +585,13 @@
             bias-disable;
             drive-push-pull;
             slew-rate = <0>;
-        }
+        };
     };
 
     tim1_sleep_pins_mx: tim1_sleep_mx-0 {
         pins{
             pinmux = <STM32_PINMUX('E', 11, ANALOG)>; /* TIM1_CH2 */
-        }
+        };
     };
 
 
