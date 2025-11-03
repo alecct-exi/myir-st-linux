@@ -8,7 +8,7 @@
 
 #include "myb-stm32mp135x-256m.dts"
 
-&panel_ltdc_rgb{
+/*&panel_ltdc_rgb{
 	status = "disabled";
 };
 
@@ -26,7 +26,7 @@
 				remote-endpoint = <&sii9022_in>;
 		};
 	};
-};
+};*/
 
 &i2c3{
 		sii902x: sii902x@39 {

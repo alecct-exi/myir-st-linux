@@ -8,9 +8,9 @@
 
 #include "myb-stm32mp135x-512m.dts"
 
-&panel_ltdc_rgb{
+/*&panel_ltdc_rgb{
 	status = "disabled";
-};
+};*/
 
 /*&ltdc {
 	pinctrl-names = "default", "sleep";
