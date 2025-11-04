@@ -215,6 +215,23 @@
 
 };
 
+&pinctrl {
+    tim1_pwm_pins_mx: tim1_pwm_mx-0 {
+        pins {
+            pinmux = <STM32_PINMUX('E',  11, AF1)>;  /* TIM1_CH2*/
+            bias-disable;
+            drive-push-pull;
+            slew-rate = <0>;
+        };
+    };
+
+    tim1_pwm_sleep_pins_mx: tim1_pwm_sleep_mx-0 {
+        pins{
+            pinmux = <STM32_PINMUX('E', 11, ANALOG)>; /* TIM1_CH2 */
+        };
+    };
+};
+
 &adc_1 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&adc1_usb_cc_pins_a>;
@@ -436,10 +453,14 @@
 };
 
 &timers1 {
-    pinctrl-names = "default", "sleep";
-    pinctrl-0 = <&tim1_pins_mx>;
-    pinctrl-1 = <&tim1_sleep_pins_mx>;
     status = "okay";
+
+    pwm1:pwm{
+        pinctrl-names = "default", "sleep";
+        pinctrl-0 = <&tim1_pwm_pins_mx>;
+        pinctrl-1 = <&tim1_pwm_sleep_pins_mx>;
+        status = "okay";
+    };
 };
 
 &uart8 {
