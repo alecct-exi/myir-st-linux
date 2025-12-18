@@ -49,3 +49,36 @@
 	};
 
 };
+
+
+&rcc {
+	status = "okay";
+	clocks = <&clk_hse>, <&clk_hsi>, <&clk_lse>, <&clk_lsi>, <&clk_csi>;
+	clock-names = "clk-hse", "clk-hsi", "clk-lse", "clk-lsi", "clk-csi";
+	st,clksrc = <
+		CLK_MPU_PLL1P
+		CLK_AXI_HSI
+		CLK_MLAHBS_HSE
+		CLK_RTC_LSE
+		CLK_MCO1_HSE
+		CLK_MCO2_DISABLED
+		CLK_CKPER_DISABLED
+		CLK_STGEN_HSE
+	>;
+
+    st,clk_opp{
+        st,ck_mlahbs {
+            cfg_1 {
+                hz = < 24000000>;
+                st,clksrc = <CLK_MLAHBS_HSE >;
+                st,clkdiv = <DIV(DIV_MLAHB, 0) >;
+            };  
+        };
+    };
+    
+    st,rcc{
+        pinctrl-names = "default";
+        pinctrl-0 = <&rcc_pins_mx>;
+        status = "okay";
+    };
+};

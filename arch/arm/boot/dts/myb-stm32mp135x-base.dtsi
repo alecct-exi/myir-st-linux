@@ -215,7 +215,7 @@
 
 };
 
-&rcc {
+/*&rcc {
 	status = "okay";
 	clocks = <&clk_hse>, <&clk_hsi>, <&clk_lse>, <&clk_lsi>, <&clk_csi>;
 	clock-names = "clk-hse", "clk-hsi", "clk-lse", "clk-lsi", "clk-csi";
@@ -245,7 +245,7 @@
         pinctrl-0 = <&rcc_pins_mx>;
         status = "okay";
     };
-};
+};*/
 
 &pinctrl {
     tim1_pwm_pins_mx: tim1_pwm_mx-0 {
