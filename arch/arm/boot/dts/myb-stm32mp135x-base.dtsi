@@ -216,6 +216,9 @@
 };
 
 &rcc {
+	status = "okay";
+	clocks = <&clk_hse>, <&clk_hsi>, <&clk_lse>, <&clk_lsi>, <&clk_csi>;
+	clock-names = "clk-hse", "clk-hsi", "clk-lse", "clk-lsi", "clk-csi";
     st,clksrc = <
         CLK_MPU_PLL1P
 		CLK_AXI_HSI
