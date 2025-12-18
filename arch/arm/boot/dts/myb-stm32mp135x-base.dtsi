@@ -274,11 +274,6 @@
 
 };
 
-&gpiod {
-    st,protreg = < (TZPROT(7)) >;
-}
-
-
 &adc_1 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&adc1_usb_cc_pins_a>;

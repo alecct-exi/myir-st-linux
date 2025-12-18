@@ -82,3 +82,9 @@
         status = "okay";
     };
 };
+
+
+&gpiod {
+    st,protreg = < (TZPROT(7)) >;
+}
+
