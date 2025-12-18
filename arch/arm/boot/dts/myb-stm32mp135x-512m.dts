@@ -66,14 +66,62 @@
 		CLK_STGEN_HSE
 	>;
 
-    st,clk_opp{
-        st,ck_mlahbs {
-            cfg_1 {
-                hz = < 24000000>;
-                st,clksrc = <CLK_MLAHBS_HSE >;
-                st,clkdiv = <DIV(DIV_MLAHB, 0) >;
-            };  
-        };
+	st,clkdiv = <
+		DIV(DIV_MPU, 1)
+		DIV(DIV_AXI, 0)
+		DIV(DIV_MLAHB, 0)
+		DIV(DIV_APB1, 1)
+		DIV(DIV_APB2, 1)
+		DIV(DIV_APB3, 1)
+		DIV(DIV_APB4, 0)
+		DIV(DIV_APB5, 0)
+		DIV(DIV_APB6, 1)
+		DIV(DIV_RTC, 0)
+		DIV(DIV_MCO1, 1)
+		DIV(DIV_MCO2, 0)
+	>;
+	st,pll_vco {
+		/* USER CODE BEGIN rcc_st-pll_vco */
+		/* USER CODE END rcc_st-pll_vco */
+	};
+
+	st,clk_opp {
+		/* CK_MPU clock config for MP13 */
+		st,ck_mpu {
+
+			cfg_1 {
+				hz = < 960000000 >;
+				st,clksrc = < CLK_MPU_PLL1P >;
+				st,pll = < &pll1_cfg1 >;
+			};
+			/* USER CODE BEGIN rcc_st-ck_mpu */
+			/* USER CODE END rcc_st-ck_mpu */
+		};
+
+		/* CK_AXI clock config for MP13 */
+		st,ck_axi {
+
+			cfg_1 {
+				hz = < 64000000 >;
+				st,clksrc = < CLK_AXI_HSI >;
+				st,clkdiv = < DIV(DIV_AXI, 0) >;
+			};
+			/* USER CODE BEGIN rcc_st-ck_axi */
+			/* USER CODE END rcc_st-ck_axi */
+		};
+
+		/* CK_MLAHBS clock config for MP13 */
+		st,ck_mlahbs {
+
+			cfg_1 {
+				hz = < 24000000 >;
+				st,clksrc = < CLK_MLAHBS_HSE >;
+				st,clkdiv = < DIV(DIV_MLAHB, 0) >;
+			};
+
+			/* USER CODE BEGIN rcc_st-ck_mlahbs */
+			/* USER CODE END rcc_st-ck_mlahbs */
+		};
     };
     
     st,rcc{
