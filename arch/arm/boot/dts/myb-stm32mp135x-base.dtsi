@@ -215,6 +215,35 @@
 
 };
 
+&rcc {
+    st,clksrc = <
+        CLK_MPU_PLL1P
+		CLK_AXI_HSI
+		CLK_MLAHBS_HSE
+		CLK_RTC_LSE
+		CLK_MCO1_HSE
+		CLK_MCO2_DISABLED
+		CLK_CKPER_DISABLED
+		CLK_STGEN_HSE
+    >;
+
+    st,clk_opp{
+        st,ck_mlahbs {
+            cfg_1 {
+                hz = < 24000000>;
+                st,clksrc = <CLK_MLAHBS_HSE >;
+                st,clkdiv = <DIV(DIV_MLAHB, 0) >;
+            };  
+        };
+    };
+    
+    st,rcc{
+        pinctrl-names = "default";
+        pinctrl-0 = <&rcc_pins_mx>;
+        status = "okay";
+    };
+};
+
 &pinctrl {
     tim1_pwm_pins_mx: tim1_pwm_mx-0 {
         pins {
@@ -230,7 +259,22 @@
             pinmux = <STM32_PINMUX('E', 11, ANALOG)>; /* TIM1_CH2 */
         };
     };
+    
+    rcc_pins_mx: rcc_mx-0 {
+        pins {
+            pinmux = <STM32_PINMUX('A', 8, AF0)>; //RCC_MCO_1
+            bias-disable;
+            drive-push-pull;
+            slew-rate = <0>;
+        };
+    };
+
 };
+
+&gpioa {
+    st,protreg = < (TZPROT(8)) >;
+}
+
 
 &adc_1 {
 	pinctrl-names = "default";
