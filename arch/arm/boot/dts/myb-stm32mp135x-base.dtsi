@@ -219,8 +219,8 @@
 	status = "okay";
 	clocks = <&clk_hse>, <&clk_hsi>, <&clk_lse>, <&clk_lsi>, <&clk_csi>;
 	clock-names = "clk-hse", "clk-hsi", "clk-lse", "clk-lsi", "clk-csi";
-    st,clksrc = <
-        CLK_MPU_PLL1P
+	st,clksrc = <
+		CLK_MPU_PLL1P
 		CLK_AXI_HSI
 		CLK_MLAHBS_HSE
 		CLK_RTC_LSE
@@ -228,7 +228,7 @@
 		CLK_MCO2_DISABLED
 		CLK_CKPER_DISABLED
 		CLK_STGEN_HSE
-    >;
+	>;
 
     st,clk_opp{
         st,ck_mlahbs {
@@ -265,7 +265,7 @@
     
     rcc_pins_mx: rcc_mx-0 {
         pins {
-            pinmux = <STM32_PINMUX('A', 8, AF0)>; //RCC_MCO_1
+            pinmux = <STM32_PINMUX('D', 7, AF0)>; //RCC_MCO_1
             bias-disable;
             drive-push-pull;
             slew-rate = <0>;
@@ -274,8 +274,8 @@
 
 };
 
-&gpioa {
-    st,protreg = < (TZPROT(8)) >;
+&gpiod {
+    st,protreg = < (TZPROT(7)) >;
 }
 
 
